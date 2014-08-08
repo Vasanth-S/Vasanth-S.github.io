@@ -616,8 +616,8 @@ right: 40px;
 }
 
 .swiper-slide{
-max-height: 640px;
-min-height:640px;
+max-height: 610px;
+min-height:600px;
 }
 
 .cloud-img-holder .cloud-3-img {
