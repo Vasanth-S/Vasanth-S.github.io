@@ -2,9 +2,10 @@
 
 <head>
 
-	
-	
-		<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300italic,700italic' rel='stylesheet' type='text/css'>
+
+<meta name = "viewport" content = "width = device-width,height=device-height,
+       initial-scale = 1.0, user-scalable = no">
+	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300italic,700italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link href="css/app.css" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" href="css/animate.css">
@@ -16,7 +17,7 @@
 	<script src="js/textillate.js"></script>
 	<script src="js/plax.js"></script>
 	<script src="js/idangerous.swiper.js"></script>
-	<script src="js/idangerous.swiper.plugin.js"></script>
+	<script src="js/idangerous.swiper-smooth.js"></script>
 	<script src="js/app.js" type="application/javascript"></script>
 
 	<script>
@@ -29,55 +30,42 @@
 			}
 		}
 
-		function doAnim1(index) {
+		function doAnim(index, direction) {
+
+			showOverlayMask();
 			arrItem = ['.man-item', '.women-item', '.kid-item'];
-			arrImg = ['.man-img','.women-img','.kid-img'];
-			arrBubble = ['.bubble-man','.bubble-women','.bubble-kid'];
-			$('img.show-item').removeClass('fadeInDownBig bounceInLeft animated');
-			$('img.show-item.person-img').addClass('fadeOutDownBig animated anim-delay900');
-			$('img.show-item.bubble-img').addClass('bounceOutLeft animated');
-			//$(arrImg[index - 1]).addClass('show-item fadeInDown animated');
-			//$(arrBubble[index - 1]).addClass('show-item bounceInLeft animated');
-			
-			setTimeout(function(){
-				$('img.show-item').removeClass('show-item animated bounceOutLeft fadeOutDownBig');				
-				//$('img.show-item').addClass('show-item fadeInDown bounceInLeft animated');
-				$(arrImg[index - 1]).addClass('show-item fadeInDownBig animated anim-delay900');
-				$(arrBubble[index - 1]).addClass('show-item bounceInLeft animated');
-				$('div.show-item').removeClass('show-item');
-				$(arrItem[index - 1]).addClass('show-item');
-			},400);
-			////console.log('from do anim--', index);
-		}
-		
-		
-		function doAnim(index) {
-			
-			
-			arrItem = ['.man-item', '.women-item', '.kid-item'];
-			arrImg = ['.man-img','.women-img','.kid-img'];
-			arrBubble = ['.bubble-man','.bubble-women','.bubble-kid'];
-			
+			arrImg = ['.man-img', '.women-img', '.kid-img'];
+			arrBubble = ['.bubble-man', '.bubble-women', '.bubble-kid'];
+			console.log('from doAnim', index, pl.sameSlideSwipecounter, arrItem[index]);
 			$('img.show-item').removeClass('animated');
-			$('div.show-item').removeClass('show-item');
-			$('img.show-item.person-img').removeClass('anim-delay300 fadeInDownBig').addClass('fadeOutDownBig animated');
-			$('img.show-item.bubble-img').removeClass('anim-delay1200 zoomIn').addClass('zoomOut animated');
-	
-			
-			$(arrImg[index - 1]).removeClass('fadeOutDownBig animated').addClass('show-item fadeInDownBig anim-delay300');
-			$(arrBubble[index - 1]).removeClass('zoomOut animated').addClass('show-item zoomIn animated anim-delay1200');
-			$('div'+arrItem[index - 1]).addClass('show-item');
-			//console.log('from do anim--', index);
+			$('div.show-item').removeClass('show-item zoomIn');
+			$('img.show-item.person-img').removeClass('fadeInDown').addClass('zoomOut animated');
+			$('img.show-item.bubble-img').removeClass('anim-delay700 zoomIn').addClass('zoomOut animated');
+
+			if ((index <= 1) && direction == 'next') {
+				$('div.man-item').addClass('show-item');
+			} else {
+				$('div' + arrItem[index - 1]).addClass('show-item zoomIn animated');
+			}
+
+			$(arrImg[index - 1]).removeClass('zoomOut animated').addClass('show-item fadeInDown animated');
+			$(arrBubble[index - 1]).removeClass('zoomOut animated').addClass('show-item zoomIn animated anim-delay700');
+			if (index <= 1 && direction == 'prev') {
+				$('div.man-item').addClass('show-item');
+			}
+			setTimeout(function () {
+				console.log('finished');
+				hideOverlayMask();
+			}, 2000);
+
 		}
+
 		pl = {};
 		pl.sameSlideSwipecounter = -1;
 		pl.sameSlideSwipeIndex = 2;
 		pl.sameSlideSwipecounterStarted = false;
-		
-		pl.onSlideSwipe = function (direction) {
 
-			//console.log('---------------------------------------------------------------');
-			//console.log('active --', mySwiper.activeIndex, '--counter', pl.sameSlideSwipecounter);
+		pl.onSlideSwipe = function (direction) {
 
 			if (pl.sameSlideSwipecounterStarted) {
 				if (direction == 'prev') {
@@ -88,7 +76,7 @@
 					//console.log('from direction next on swipe');
 
 				}
-				doAnim(pl.sameSlideSwipecounter);
+				doAnim(pl.sameSlideSwipecounter, direction);
 			}
 
 			if (pl.sameSlideSwipecounterStarted && (pl.sameSlideSwipecounter < 4 && pl.sameSlideSwipecounter >= 0)) {
@@ -117,7 +105,7 @@
 			var visibleItems = '#' + slideId + ' .visible-change';
 			var parallaxItem = '#' + slideId + ' .parallax-item';
 			var titleText = '#' + slideId + ' .title-text';
-			var bubbleImg =  '#' + slideId + ' .bubble-img';
+			var bubbleImg = '#' + slideId + ' .bubble-img';
 			var man_3 = '#' + slideId + ' .man_3';
 			var girl_5 = '#' + slideId + ' .girl_5';
 			var kiosk_5 = '#' + slideId + ' .kiosk_5';
@@ -152,12 +140,12 @@
 			var visibleItems = '#' + slideId + ' .visible-change';
 			var parallaxItem = '#' + slideId + ' .parallax-item';
 			var titleText = '#' + slideId + ' .title-text';
-			var bubbleImg =  '#' + slideId + ' .bubble-img';
+			var bubbleImg = '#' + slideId + ' .bubble-img';
 			var man_3 = '#' + slideId + ' .man_3';
 			var girl_5 = '#' + slideId + ' .girl_5';
 			var kiosk_5 = '#' + slideId + ' .kiosk_5';
 			var boy_6 = '#' + slideId + ' .boy_6';
-			
+
 			$(visibleItems).css('opacity', '1.0');
 			$(logo).addClass('animated flipInX');
 			//$(normalText).textillate('start');
@@ -187,14 +175,15 @@
 				//console.log('inside if main');
 				if (direction == 'prev') {
 					pl.sameSlideSwipecounter = 3;
-					//console.log('from direction previous');
 					doAnim(3);
 				} else {
 					pl.sameSlideSwipecounter = 0;
-					//console.log('from direction next');
+					console.log('from direction next');
 				}
 			} else {
 				//console.log('inside else main');
+
+				pl.sameSlideSwipecounter = -1;
 				pl.sameSlideSwipecounterStarted = false;
 				mySwiper.params.stayStill = false;
 			}
@@ -209,7 +198,7 @@
 			showOverlayMask();
 			setTimeout(function () {
 				hideOverlayMask();
-			}, 1000)
+			}, 1000);
 			//resetSlideElements(swiper.activeIndex);
 
 			//changeBg(swiper.activeIndex);
@@ -235,8 +224,10 @@
 		}
 
 		$(document).ready(function () {
-			$parallaxCont = $('.parallax-cont')
-			mySwiper = $('.swiper-container').swiper({
+			$parallaxCont = $('.parallax-cont');
+			$('.page-final').height($(this).height());
+
+			swiper = mySwiper = $('.swiper-container').swiper({
 				mode: 'vertical',
 				keyboardControl: true,
 				mousewheelControl: true,
@@ -256,51 +247,21 @@
 				delay: 87000,
 				followFinger: false,
 				timeout: 00,
-				slidesPerView: 'auto',
-				//progress: true,
-				onProgressChange: function (swiper) {
-					for (var i = 0; i < swiper.slides.length; i++) {
-						var slide = swiper.slides[i];
-						var progress = slide.progress;
-						swiper.setTransform(slide, 'translate3d(0px,0,' + (-Math.abs(progress * 1500)) + 'px)');
-					}
-
-				},
-				onTouchStart: function (swiper) {
-					for (var i = 0; i < swiper.slides.length; i++) {
-						swiper.setTransition(swiper.slides[i], 0);
-					}
-				},
-				onSetWrapperTransition: function (swiper, speed) {
-					for (var i = 0; i < swiper.slides.length; i++) {
-						swiper.setTransition(swiper.slides[i], speed);
-					}
-				}
+				slidesPerView: 'auto'
 			});
-
-			for (var i = 0; i < mySwiper.slides.length; i++) {
-				mySwiper.slides[i].style.zIndex = mySwiper.slides.length - i;
-			}
+			//			for (var i = 0; i < mySwiper.slides.length; i++) {
+			//				mySwiper.slides[i].style.zIndex = mySwiper.slides.length - i;
+			//			}
 
 			$('.visible-change').css('opacity', '0');
-			//$('.man-item').addClass('show-item');
+			$('div.man-item').addClass('show-item');
 			startAnimatingItems(0);
 			hideOverlayMask();
-//			$('.desc-text').textillate({ in : {
-//					effect: 'rotateInDownLeft',
-//					delay: 5
-//				}
-//			});
-//			$('.normal-txt').textillate({ in : {
-//					effect: 'fadeIn',
-//					delay: 90
-//				}
-//			});
-//			$('.highlight-txt').textillate({ in : {
-//					effect: 'fadeIn',
-//					delay: 90
-//				}
-//			});
+
+			$(window).on('resize', function () {
+				$('.page-final').height($(this).height());
+			});
+
 		});
 	</script>
 
@@ -329,51 +290,32 @@
 			bottom: 0px;
 			width: 100%;
 		}
-		
-		.swiper-slide .logo{
-			display: none	
+		.swiper-slide .logo {
+			display: none
 		}
-		.fixed-item{
-		  	position: fixed;
-			top:0px;
-			left:0px;
-			width:100%;
-			z-index:2;
-		}
-		
-		/*
-		.swiper-container {
-			-webkit-perspective: 1200px;
-			-moz-perspective: 1200px;
-			-ms-perspective: 1200px;
-			perspective: 1200px;
-		}
-		.swiper-wrapper {
-			-webkit-transform-style: preserve-3d;
-			-moz-transform-style: preserve-3d;
-			-ms-transform-style: preserve-3d;
-			transform-style: preserve-3d;
-		}
-		.swiper-slide {
-			position: relative;
-			-webkit-transform-style: preserve-3d;
-			-moz-transform-style: preserve-3d;
-			-ms-transform-style: preserve-3d;
-			transform-style: preserve-3d;
+		.fixed-item {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			z-index: 2;
 		}
 		.swiper-slide {
 			//opacity:0;  
 			//-webkit-transition: opacity 4s;
+
 		}
 		.swiper-slide-active {
 			//opacity: 1;
+
 		}
-*/
 	</style>
 
-	
+
 	<div class="overlay-mask"></div>
-	<div class="fixed-item"><div class="logo"></div></div>
+	<div class="fixed-item">
+		<div class="logo"></div>
+	</div>
 	<div class="parallax-cont swiper-container">
 		<div class="swiper-wrapper">
 
@@ -389,8 +331,8 @@
 						</div>
 					</div>
 					<div class="parallax-item slide-3 text-slide">
-						<div class="desc-text">This app lets us to create multiple users with password protection.<br>
-It is designed to restrict access; the admin decides which group /user can use which features/apps.
+						<div class="desc-text">This app lets us to create multiple users with password protection.
+							<br>It is designed to restrict access; the admin decides which group /user can use which features/apps.
 						</div>
 					</div>
 					<div class="tablet-img-holder visible-change">
@@ -419,8 +361,9 @@ It is designed to restrict access; the admin decides which group /user can use w
 						</div>
 					</div>
 					<div class="parallax-item slide-3 text-slide">
-						<div class="desc-text">Administrators have the privilege of personalizing their device by creating multiple password-protected user <br>accounts and time limits for each of them. This handy app allows us to tackle day to day activities.<br> 
-Parental control cannot get any more fun!!.
+						<div class="desc-text">Administrators have the privilege of personalizing their device by creating multiple password-protected user
+							<br>accounts and time limits for each of them. This handy app allows us to tackle day to day activities.
+							<br>Parental control cannot get any more fun!!.
 						</div>
 					</div>
 
@@ -439,7 +382,7 @@ Parental control cannot get any more fun!!.
 					<div class="parallax-item slide-1 text-slide visible-change">
 						<div class="logo"></div>
 					</div>
-					<div class="parallax-item slide-2 text-slide visible-change">
+					<div class="parallax-item slide-2 text-slide">
 						<div class="title-text man-item">
 							<span class="normal-txt">An app that</span> 
 							<span class="mildblue highlight-txt">let's you Personalise...</span>
@@ -453,7 +396,7 @@ Parental control cannot get any more fun!!.
 							<span class="mildblue highlight-txt">I care</span>
 						</div>
 					</div>
-					<div class="parallax-item slide-3 text-slide visible-change">
+					<div class="parallax-item slide-3 text-slide">
 						<div class="desc-text man-item">I can check my work emails, look up contacts without worrying about my privacy.This was done possible because I created seperate logins for my entire family.
 						</div>
 						<div class="desc-text women-item">She can have her own personalised app and browse her favourite stuffs.And, Now she does not have to worry about my annoying mail notifications popping up all the time.
@@ -566,11 +509,11 @@ Parental control cannot get any more fun!!.
 						</div>
 					</div>
 					<div>
-						<a href="#" class="g-store"></a>
+						<a href="https://play.google.com/store/apps/details?id=com.imaginea.lockedlauncher&hl=en" class="g-store"></a>
 					</div>
 					<div class="footer-content">
-						<a href="#" class="i-logo"></a>
-						<div class="copy-text">Copyright &copy; 2013 Imaginea Technologies Inc. All Rights Reserved. Imaginea is a trademark of Imaginea Technologies Inc. All other trademarks belong to their respective owners.
+						<a href="http://www.imaginea.com/" class="i-logo"></a>
+						<div class="copy-text">Copyright &copy; 2014 Imaginea Technologies Inc. All Rights Reserved. Imaginea is a trademark of Imaginea Technologies Inc. All other trademarks belong to their respective owners.
 						</div>
 					</div>
 
