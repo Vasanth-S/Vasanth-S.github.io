@@ -225,8 +225,8 @@
 
 		$(document).ready(function () {
 			$parallaxCont = $('.parallax-cont');
-			$('.page-final').height($(this).height());
-
+			$('.page-final').height($(window).height());
+			
 			swiper = mySwiper = $('.swiper-container').swiper({
 				mode: 'vertical',
 				keyboardControl: true,
@@ -258,10 +258,10 @@
 			startAnimatingItems(0);
 			hideOverlayMask();
 
-			$(window).on('resize', function () {
+			$(window).on('resize', function () {				
 				$('.page-final').height($(this).height());
 			});
-
+			$('.swiper-slide').height($(window).height()-1);
 		});
 	</script>
 

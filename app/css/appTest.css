@@ -584,7 +584,7 @@
 			body {
 				background: blue;
 			}
-			.cloud-img-holder .cloud-3-img{
+			.cloud-img-holder .cloud-3-img {
 				bottom: -145px;
 			}
 		}
@@ -611,11 +611,14 @@
 			}
 			.desc-text {
 				text-align: left;
-				padding: 0px 20px;
+				padding: 0px 10px;
 				padding-right: 30px;
 			}
 			.title-text {
+				font-size: 30px;
+				padding: 20px 10px;
 				text-align: left;
+				padding-top: 75px !important;
 			}
 			.swiper-slide {
 				min-height: 350px;
@@ -624,12 +627,15 @@
 			.bubble-img {
 				display: none !important;
 			}
+			.page-2 .desc-text br{
+				display: none;
+			}
 			.page-3 {
 				background: none;
 			}
 			.page-3 .main-img-slide {
 				width: 150%;
-				margin-left: -60%;
+				margin-left: -43%;
 				bottom: -30px;
 			}
 			.logo {
@@ -640,17 +646,21 @@
 			.man_3 {
 				width: 47%;
 				left: 20%;
+				bottom: -30px;
 			}
 			.kiosk_5 {
 				width: 35%;
 				left: 19%;
+				bottom: -30px;
 			}
 			.girl_5 {
 				width: 67%;
 				left: 24%;
+				bottom: -30px;
 			}
 			.boy_6 {
-				width: 35%;
+				width: 33%;
+				bottom: -30px;
 			}
 			.tablet-img-holder {
 				bottom: 30px;
@@ -666,8 +676,39 @@
 				left: 7%;
 				bottom: 0%;
 			}
-			.cloud-img-holder .cloud-3-img{
+			.cloud-img-holder .cloud-3-img {
 				bottom: -45px;
+			}
+			.floor_4-img {
+				display: none;
+			}
+			.normal-txt {
+				display: block;
+			}
+			.page-6 {
+				background-size: 500px;
+			}
+			.page-8 {
+				background-size: 150%;
+			}
+			.copy-text {
+				font-size: 10px;
+				text-align: left;
+			}
+			.g-store {
+				margin: 10px auto;
+				background-position:  center;
+				background-size: 60%;
+			}
+			.i-logo {
+				width: 160;
+				height: 25px;
+				background-size: 100%;
+				margin: 20px auto;
+			}
+			.footer-content {
+				position: absolute;
+				bottom: 30px;
 			}
 		}
 		@media all and (max-width: 320px) and (min-width: 241px) {
