@@ -579,6 +579,12 @@
 			background-color: rgba(255, 255, 255, 0.7);
 			border-radius: 5px;
 		}
+		.pagination-light {
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+		.pagination-light .swiper-active-switch {
+			background: rgb(30, 33, 34);
+		}
 		/* #### Mobile Phones Portrait #### */
 		@media all and (min-width: 1367px) {
 			body {
@@ -627,7 +633,7 @@
 			.bubble-img {
 				display: none !important;
 			}
-			.page-2 .desc-text br{
+			.page-2 .desc-text br {
 				display: none;
 			}
 			.page-3 {
@@ -641,7 +647,7 @@
 			.logo {
 				width: 100%;
 				background-size: 50%;
-				background-position: 35px center;
+				background-position: 25px center;
 			}
 			.man_3 {
 				width: 47%;
@@ -682,7 +688,7 @@
 			.floor_4-img {
 				display: none;
 			}
-			.normal-txt {
+			.page-1 .normal-txt, .page-2 .normal-txt, .man-item .normal-txt , page-8 .normal-txt {
 				display: block;
 			}
 			.page-6 {
@@ -697,7 +703,7 @@
 			}
 			.g-store {
 				margin: 10px auto;
-				background-position:  center;
+				background-position: center;
 				background-size: 60%;
 			}
 			.i-logo {
