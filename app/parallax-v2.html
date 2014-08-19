@@ -29,7 +29,7 @@
 				logme.call(this, arguments);
 			}
 		}
-
+		document.ontouchmove = function(e) {e.preventDefault()};
 		function doAnim(index, direction) {
 
 			showOverlayMask();
