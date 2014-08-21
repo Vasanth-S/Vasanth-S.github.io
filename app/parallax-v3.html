@@ -322,6 +322,7 @@
 			$(window).on('resize', function () {
 				$('.page-final').height($(this).height());
 				$('.swiper-slide').height($(window).height());
+				mySwiper.resizeFix()
 			});
 			$('.swiper-slide').height($(window).height() - 1);
 
