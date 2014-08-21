@@ -3,6 +3,7 @@
 			height: 100%;
 			width: 100%;
 			margin: 0px;
+			-webkit-user-select: none;
 		}
 		.parallax-page {
 			height: 100%;
@@ -557,15 +558,23 @@
 		.page-final {
 			max-height: none;
 		}
-		.swiper-pagination-switch {
+		.swiper-pagination-switch:after {
 			height: 8px;
 			width: 8px;
 			background: rgb(221, 221, 221);
-			display: block;
-			margin: 15px;
+			display: block;			
 			border-radius: 10px;
+			content: ''
 		}
-		.swiper-active-switch {
+		.swiper-pagination-switch {
+			height: 30px;
+			width: 36px;
+			display: block;
+			padding: 11px 14px;
+			box-sizing: border-box;
+		}
+		.swiper-active-switch:after {
+			content:'';
 			background: rgb(163, 163, 163);
 		}
 		.pagination {
@@ -688,7 +697,10 @@
 			.floor_4-img {
 				display: none;
 			}
-			.page-1 .normal-txt, .page-2 .normal-txt, .man-item .normal-txt , page-8 .normal-txt {
+			.page-1 .normal-txt,
+			.page-2 .normal-txt,
+			.man-item .normal-txt,
+			page-8 .normal-txt {
 				display: block;
 			}
 			.page-6 {

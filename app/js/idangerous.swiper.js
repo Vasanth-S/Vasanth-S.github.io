@@ -1862,7 +1862,7 @@ var Swiper = function (selector, params) {
 		var direction = currentPosition > newPosition ? 'next' : 'prev';
 		
 		if (pl && pl.onSlideSwipe) {
-				pl.onSlideSwipe(direction);
+				pl.onSlideSwipe(direction,action);
 			} else {
 				//console.log('--no pl', 'pl',direction);				
 			}
