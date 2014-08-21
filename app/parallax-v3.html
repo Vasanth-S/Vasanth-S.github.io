@@ -255,6 +255,13 @@
 					//console.log('from direction next');
 				}
 			}
+			
+			if (mySwiper.activeIndex == 6) {
+				$('.pagination').addClass('pagination-light');
+			}else{
+				$('.pagination').removeClass('pagination-light');
+			}
+			
 		}
 
 		function changeBg(index) {
@@ -292,7 +299,7 @@
 		};
 		$(document).ready(function () {
 			$parallaxCont = $('.parallax-cont');
-			$('.page-final').height($(window).height());
+			$('.page-final').height(window.innerHeight);
 
 			swiper = mySwiper = $('.swiper-container').swiper({
 				mode: 'vertical',
@@ -325,11 +332,11 @@
 			hideOverlayMask();
 
 			$(window).on('resize', function () {
-				$('.page-final').height($(this).height());
-				$('.swiper-slide').height($(window).height());
+				$('.page-final').height(window.innerHeight);
+				$('.swiper-slide').height(window.innerHeight);
 				mySwiper.resizeFix()
 			});
-			$('.swiper-slide').height($(window).height() - 1);
+			$('.swiper-slide').height(window.innerHeight - 1);
 
 			doneByTap = false;
 			prevIndex = 0;
