@@ -634,6 +634,7 @@
 				padding: 20px 10px;
 				text-align: left;
 				padding-top: 75px !important;
+				background:red;
 			}
 			.swiper-slide {
 				min-height: 220px;
