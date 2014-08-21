@@ -4,14 +4,14 @@
 
 
 	<meta name="viewport" content="width = device-width,height=device-height,
-       initial-scale = 1.0, user-scalable = no, minimal-ui">
+       initial-scale = 1.0, user-scalable = no">
 	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300italic,700italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link href="css/appTest.css" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/idangerous.swiper.css">
 
-<script src="http://172.17.0.20:8080/target/target-script-min.js#anonymous"></script>
+	<script src="http://172.17.0.20:8080/target/target-script-min.js#anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/jquery.lettering-0.6.1.min.js"></script>
 	<script src="js/textillate.js"></script>
@@ -21,7 +21,7 @@
 	<script src="js/app.js" type="application/javascript"></script>
 
 	<script>
-	/*	showConsole = true;
+		/*	showConsole = true;
 
 		logme = console.log;
 		console.log = function () {
@@ -30,6 +30,11 @@
 			}
 		}
 */
+
+		document.addEventListener('touchmove', function (e) {
+			e.preventDefault();			
+		}, false);
+
 		function doAnim(index, direction) {
 			//console.log('--argument.callee.caller--', arguments.callee.caller);
 			showOverlayMask();
