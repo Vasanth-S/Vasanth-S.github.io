@@ -30,7 +30,7 @@
 			font-family: 'Merriweather', serif;
 			font-style: italic;
 			font-weight: 700;
-			padding-top: 95px ;
+			padding-top: 95px;
 			letter-spacing: -2px;
 		}
 		.mildblue {
@@ -375,7 +375,7 @@
 			width: 192px;
 			height: 33px;
 			background: url('../../resources/slices/imaginea-logo.png') no-repeat;
-			margin: 40px auto;
+			margin: 0px auto;
 			display: block;
 		}
 		.copy-text {
@@ -384,12 +384,13 @@
 			line-height: 14px;
 			font-size: 12px;
 			font-family: 'Open Sans', sans-serif;
+			margin-top:40px;
 		}
-		
 		.footer-content {
 			position: absolute;
 			bottom: 40px;
 			font-size: 13px;
+			height: 105px
 		}
 		.girl_5,
 		.boy_6 {
@@ -501,7 +502,7 @@
 			max-width: 750px;
 		}
 		.page-7 .desc-text {
-			padding: 0px 30px;			
+			padding: 0px 30px;
 		}
 		.tablet-img-holder {
 			margin-right: 15px;
@@ -558,7 +559,7 @@
 			height: 8px;
 			width: 8px;
 			background: rgb(221, 221, 221);
-			display: block;			
+			display: block;
 			border-radius: 10px;
 			content: ''
 		}
@@ -570,14 +571,14 @@
 			box-sizing: border-box;
 		}
 		.swiper-active-switch:after {
-			content:'';
+			content: '';
 			background: rgb(163, 163, 163);
 		}
 		.pagination {
 			background-color: rgba(255, 255, 255, 0.7);
 			border-radius: 5px;
 		}
-		.pagination-cover{
+		.pagination-cover {
 			position: absolute;
 			right: 10px;
 			top: 0px;
@@ -617,7 +618,7 @@
 			/* styles for narrower desktop browsers and iPad portrait */
 			body {
 				background: orange;
-			} 
+			}
 		}
 		@media all and (max-width: 480px) and (min-width: 241px) {
 			/* styles for iPhone/Android landscape (and really narrow browser windows) */
@@ -633,7 +634,7 @@
 				font-size: 30px;
 				padding: 20px 10px;
 				text-align: left;
-				padding-top: 75px !important;				
+				padding-top: 75px !important;
 			}
 			.swiper-slide {
 				min-height: 220px;
@@ -715,6 +716,7 @@
 			.copy-text {
 				font-size: 10px;
 				text-align: left;
+				margin-top:20px;
 			}
 			.g-store {
 				margin: 10px auto;
@@ -724,18 +726,17 @@
 			.i-logo {
 				width: 160;
 				height: 25px;
-				background-size: 100%;
-				margin: 20px auto;
+				background-size: 100%;				
 			}
 			.footer-content {
 				position: absolute;
 				bottom: 30px;
 			}
 			.page-7 .desc-text {
-				padding: 0px 0px;			
+				padding: 0px 0px;
 			}
-			.page-final .title-text{
-				padding-top:70px !important;
+			.page-final .title-text {
+				padding-top: 70px !important;
 			}
 		}
 		@media all and (max-width: 320px) and (min-width: 241px) {
@@ -751,6 +752,7 @@
 		body {
 			background: none !important;
 		}
-		.page-final .title-text{
-				padding-top:0px !important;
+		.page-final .title-text {
+			padding-top: 75px !important;
 		}
+		
