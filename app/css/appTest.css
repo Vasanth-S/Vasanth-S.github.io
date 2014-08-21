@@ -619,9 +619,9 @@
 			/* styles for narrower desktop browsers and iPad portrait */
 			body {
 				background: orange;
-			}
+			} 
 		}
-		@media all and (max-width: 640px) and (min-width: 241px) {
+		@media all and (max-width: 480px) and (min-width: 241px) {
 			/* styles for iPhone/Android landscape (and really narrow browser windows) */
 			body {
 				background: pink;

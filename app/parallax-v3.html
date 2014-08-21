@@ -21,7 +21,7 @@
 	<script src="js/app.js" type="application/javascript"></script>
 
 	<script>
-		showConsole = true;
+	/*	showConsole = true;
 
 		logme = console.log;
 		console.log = function () {
@@ -29,7 +29,7 @@
 				logme.call(this, arguments);
 			}
 		}
-
+*/
 		function doAnim(index, direction) {
 			//console.log('--argument.callee.caller--', arguments.callee.caller);
 			showOverlayMask();
@@ -311,7 +311,8 @@
 				timeout: 00,
 				slidesPerView: 'auto',
 				paginationAsRange: true,
-				simulateTouch: true
+				simulateTouch: true,
+				calculateHeight: true,
 			});
 			$('.visible-change').css('opacity', '0');
 			$('div.man-item').addClass('show-item');
@@ -320,6 +321,7 @@
 
 			$(window).on('resize', function () {
 				$('.page-final').height($(this).height());
+				$('.swiper-slide').height($(window).height());
 			});
 			$('.swiper-slide').height($(window).height() - 1);
 
