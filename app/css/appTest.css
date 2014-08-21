@@ -633,8 +633,7 @@
 				font-size: 30px;
 				padding: 20px 10px;
 				text-align: left;
-				padding-top: 75px !important;
-				background:red;
+				padding-top: 75px !important;				
 			}
 			.swiper-slide {
 				min-height: 220px;
@@ -736,7 +735,7 @@
 				padding: 0px 0px;			
 			}
 			.page-final .title-text{
-				padding-top:75px !important;
+				padding-top:70px !important;
 			}
 		}
 		@media all and (max-width: 320px) and (min-width: 241px) {
