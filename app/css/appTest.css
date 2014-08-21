@@ -258,13 +258,13 @@
 		.women-img,
 		.man-img,
 		.kid-img {
-			top: 14%;
+			top: 10%;
 			width: 45%;
 			right: 15%;
 		}
 		.kid-img {
 			width: 22%;
-			top: 22%;
+			top: 18%;
 		}
 		.bubble-man,
 		.bubble-kid,
@@ -503,9 +503,7 @@
 			max-width: 750px;
 		}
 		.page-7 .desc-text {
-			padding: 0px 30px;
-			font-family: "open sans";
-			font-style: normal;
+			padding: 0px 30px;			
 		}
 		.tablet-img-holder {
 			margin-right: 15px;
@@ -578,15 +576,19 @@
 			background: rgb(163, 163, 163);
 		}
 		.pagination {
-			position: absolute;
-			z-index: 20;
-			right: 10px;
-			top: 200px;
-			width: 36px;
-			/* background: aqua; */
-			/* height: 200px; */
 			background-color: rgba(255, 255, 255, 0.7);
 			border-radius: 5px;
+		}
+		.pagination-cover{
+			position: absolute;
+			right: 10px;
+			top: 0px;
+			width: 36px;
+			z-index: 20;
+			height: 100%;
+			-webkit-box-pack: center;
+			-webkit-box-orient: vertical;
+			display: -webkit-box;
 		}
 		.pagination-light {
 			background-color: rgba(255, 255, 255, 0.1);
@@ -619,7 +621,7 @@
 				background: orange;
 			}
 		}
-		@media all and (max-width: 480px) and (min-width: 241px) {
+		@media all and (max-width: 640px) and (min-width: 241px) {
 			/* styles for iPhone/Android landscape (and really narrow browser windows) */
 			body {
 				background: pink;
@@ -655,7 +657,7 @@
 			}
 			.logo {
 				width: 100%;
-				background-size: 50%;
+				background-size: 200px 31px;
 				background-position: 25px center;
 			}
 			.man_3 {
@@ -697,6 +699,9 @@
 			.floor_4-img {
 				display: none;
 			}
+			.boy_6 {
+				width: 35%;
+			}
 			.page-1 .normal-txt,
 			.page-2 .normal-txt,
 			.man-item .normal-txt,
@@ -727,6 +732,9 @@
 			.footer-content {
 				position: absolute;
 				bottom: 30px;
+			}
+			.page-7 .desc-text {
+				padding: 0px 0px;			
 			}
 		}
 		@media all and (max-width: 320px) and (min-width: 241px) {
