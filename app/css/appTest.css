@@ -751,4 +751,6 @@
 		body {
 			background: none !important;
 		}
-		
+		.page-final .title-text{
+				padding-top:80px !important;
+		}
