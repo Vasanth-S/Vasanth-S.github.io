@@ -284,14 +284,14 @@
 		function hidePaginationElement() {
 			paginationCoverElement.animate({
 				"margin-left": "50px"
-			}, "slow")
+			}, "fast")
 			paginationTimeoutRunning = true;
 		};
 
 		function showPaginationElement() {
 			paginationCoverElement.animate({
 				"margin-left": "0px"
-			}, "slow")
+			}, "fast")
 			if (paginationTimeoutRunning) {
 				clearTimeout(paginationHideTimeout);
 				paginationHideTimeout = setTimeout(hidePaginationElement, 4000);
