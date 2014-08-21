@@ -69,7 +69,9 @@
 			selPaginationElement.removeClass('swiper-active-switch');
 			//console.log($($('.pagination').children()[index+1]));
 			$('.pagination').children().eq(index + 1).addClass('swiper-active-switch');
-
+			paginationCoverElement.animate({
+				"margin-left": "50px"
+			}, "fast");
 		}
 
 
