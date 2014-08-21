@@ -38,6 +38,7 @@
 		function doAnim(index, direction) {
 			//console.log('--argument.callee.caller--', arguments.callee.caller);
 			showOverlayMask();
+			
 			arrItem = ['.man-item', '.women-item', '.kid-item'];
 			arrImg = ['.man-img', '.women-img', '.kid-img'];
 			arrBubble = ['.bubble-man', '.bubble-women', '.bubble-kid'];
@@ -69,9 +70,7 @@
 			selPaginationElement.removeClass('swiper-active-switch');
 			//console.log($($('.pagination').children()[index+1]));
 			$('.pagination').children().eq(index + 1).addClass('swiper-active-switch');
-			paginationCoverElement.animate({
-				"margin-left": "50px"
-			}, "fast");
+			
 		}
 
 
@@ -85,6 +84,10 @@
 			if (action == 'to') {
 				mySwiper.params.stayStill = false;
 				return;
+			}else{
+				paginationCoverElement.animate({
+				"margin-left": "50px"
+				}, "fast");	
 			}
 			//console.log('--inside slide swipe --');
 			if (pl.sameSlideSwipecounterStarted) {
@@ -104,7 +107,7 @@
 				pl.sameSlideSwipecounter = 0;
 				mySwiper.params.stayStill = false;
 			}
-			showPaginationElement();
+			
 		};
 
 		function resetSlideElements(index) {
@@ -225,15 +228,12 @@
 
 			}
 			startAnimatingItems(swiper.activeIndex);
-			resetSlideElements(swiper.previousIndex);
-			paginationCoverElement.animate({
-				"margin-left": "50px"
-			}, "fast");
+     		resetSlideElements(swiper.previousIndex);
+			
 		}
 
 		function slideChangeStart(swiper, direction) {
 			showOverlayMask();
-			
 			
 			//	console.log('--inside slide swipe start --');
 			setTimeout(function () {
@@ -286,7 +286,7 @@
 			$('.overlay-mask').hide();
 		}
 		paginationTimeoutRunning = true;
-		paginationHideTimeout = setTimeout(hidePaginationElement, 2000);
+		paginationHideTimeout = setTimeout(hidePaginationElement, 1000);
 
 		function hidePaginationElement() {
 			paginationCoverElement.animate({
@@ -301,7 +301,7 @@
 			}, "fast")
 			if (paginationTimeoutRunning) {
 				clearTimeout(paginationHideTimeout);
-				paginationHideTimeout = setTimeout(hidePaginationElement, 2000);
+				paginationHideTimeout = setTimeout(hidePaginationElement, 1000);
 			}
 		};
 		$(document).ready(function () {
@@ -347,9 +347,14 @@
 			prevIndex = 0;
 			pl.slideDir = 'next';
 			$('.pagination').on('click', function (e) {
-
+				
+				e.stopPropagation();
+				paginationCoverElement.animate({
+					"margin-left": "50px"
+				}, "fast");
+				
 				dataIndex = e.target.getAttribute('data-index');
-
+				
 				if (parseFloat(dataIndex) > parseFloat(prevIndex)) {
 					diff = parseFloat(dataIndex) - parseFloat(prevIndex);
 					pl.slideDir = 'next';
