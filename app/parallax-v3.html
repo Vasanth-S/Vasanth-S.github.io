@@ -299,8 +299,7 @@
 		};
 		$(document).ready(function () {
 			$parallaxCont = $('.parallax-cont');
-			$('.page-final').height(window.innerHeight);
-
+			
 			swiper = mySwiper = $('.swiper-container').swiper({
 				mode: 'vertical',
 				keyboardControl: true,
@@ -332,7 +331,6 @@
 			hideOverlayMask();
 
 			$(window).on('resize', function () {
-				$('.page-final').height(window.innerHeight);
 				$('.swiper-slide').height(window.innerHeight);
 				mySwiper.resizeFix()
 			});
