@@ -575,7 +575,7 @@
 			background: rgb(163, 163, 163);
 		}
 		.pagination {
-			background-color: rgba(255, 255, 255, 0.7);
+			background-color: rgba(255, 255, 255, 0.7) !important;
 			border-radius: 5px;
 		}
 		.pagination-cover {
@@ -590,7 +590,7 @@
 			display: -webkit-box;
 		}
 		.pagination-light {
-			background-color: rgba(255, 255, 255, 0.1);
+			background-color: rgba(255, 255, 255, 0.1) !important;;
 		}
 		.pagination-light .swiper-active-switch:after {
 			background: rgb(30, 33, 34);
