@@ -30,7 +30,7 @@
 			font-family: 'Merriweather', serif;
 			font-style: italic;
 			font-weight: 700;
-			padding-top: 95px !important;
+			padding-top: 95px ;
 			letter-spacing: -2px;
 		}
 		.mildblue {
@@ -633,7 +633,7 @@
 				font-size: 30px;
 				padding: 20px 10px !important;
 				text-align: left;
-				padding-top: 75px !important;
+				padding-top: 275px !important;
 			}
 			.swiper-slide {
 				min-height: 220px;
