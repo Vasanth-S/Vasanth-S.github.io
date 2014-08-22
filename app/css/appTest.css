@@ -258,8 +258,8 @@
 		.women-img,
 		.man-img,
 		.kid-img {
-			top: 10%;
-			width: 45%;
+			top: 8%;
+			width: 47%;
 			right: 15%;
 		}
 		.kid-img {
@@ -384,7 +384,7 @@
 			line-height: 14px;
 			font-size: 12px;
 			font-family: 'Open Sans', sans-serif;
-			margin-top:40px;
+			margin-top: 40px;
 		}
 		.footer-content {
 			position: absolute;
@@ -564,10 +564,10 @@
 			content: ''
 		}
 		.swiper-pagination-switch {
-			height: 30px;
-			width: 36px;
+			height: 40px;
+			width: 55px;
 			display: block;
-			padding: 11px 14px;
+			padding: 18px 23px;
 			box-sizing: border-box;
 		}
 		.swiper-active-switch:after {
@@ -578,19 +578,24 @@
 			background-color: rgba(255, 255, 255, 0.7) !important;
 			border-radius: 5px;
 		}
+		.hidePagination {
+			-webkit-transform: translateX(55px);
+			-moz-transform: translateX(55px);
+		}
 		.pagination-cover {
 			position: absolute;
-			right: 10px;
+			right: 0px;
 			top: 0px;
-			width: 36px;
+			width: 55px;
 			z-index: 20;
 			height: 100%;
 			-webkit-box-pack: center;
 			-webkit-box-orient: vertical;
 			display: -webkit-box;
+			-webkit-transition: all 0.1s;
 		}
 		.pagination-light {
-			background-color: rgba(255, 255, 255, 0.1) !important;;
+			background-color: rgba(255, 255, 255, 0.1) !important;
 		}
 		.pagination-light .swiper-active-switch:after {
 			background: rgb(30, 33, 34);
@@ -716,7 +721,7 @@
 			.copy-text {
 				font-size: 10px;
 				text-align: left;
-				margin-top:20px;
+				margin-top: 20px;
 			}
 			.g-store {
 				margin: 10px auto;
@@ -726,7 +731,7 @@
 			.i-logo {
 				width: 160;
 				height: 25px;
-				background-size: 100%;				
+				background-size: 100%;
 			}
 			.footer-content {
 				position: absolute;

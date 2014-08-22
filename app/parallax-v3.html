@@ -4,7 +4,7 @@
 
 
 	<meta name="viewport" content="width = device-width,height=device-height,
-       initial-scale = 1.0, user-scalable = no, maximum-scale=1,">
+       initial-scale = 1.0, user-scalable = no, maximum-scale=1,minimal-ui">
 	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300italic,700italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link href="css/appTest.css" type="text/css" rel="stylesheet" />
@@ -32,13 +32,13 @@
 */
 
 		document.addEventListener('touchmove', function (e) {
-			e.preventDefault();			
+			e.preventDefault();
 		}, false);
 
 		function doAnim(index, direction) {
 			//console.log('--argument.callee.caller--', arguments.callee.caller);
 			showOverlayMask();
-			
+
 			arrItem = ['.man-item', '.women-item', '.kid-item'];
 			arrImg = ['.man-img', '.women-img', '.kid-img'];
 			arrBubble = ['.bubble-man', '.bubble-women', '.bubble-kid'];
@@ -70,7 +70,7 @@
 			selPaginationElement.removeClass('swiper-active-switch');
 			//console.log($($('.pagination').children()[index+1]));
 			$('.pagination').children().eq(index + 1).addClass('swiper-active-switch');
-			
+
 		}
 
 
@@ -224,13 +224,13 @@
 
 			}
 			startAnimatingItems(swiper.activeIndex);
-     		resetSlideElements(swiper.previousIndex);
-			
+			resetSlideElements(swiper.previousIndex);
+
 		}
 
 		function slideChangeStart(swiper, direction) {
 			showOverlayMask();
-			
+			//console.log('swipe start');
 			//	console.log('--inside slide swipe start --');
 			setTimeout(function () {
 				hideOverlayMask();
@@ -258,13 +258,13 @@
 					//console.log('from direction next');
 				}
 			}
-			
+
 			if (mySwiper.activeIndex == 6) {
 				$('.pagination').addClass('pagination-light');
-			}else{
+			} else {
 				$('.pagination').removeClass('pagination-light');
 			}
-			
+
 		}
 
 		function changeBg(index) {
@@ -282,27 +282,26 @@
 			$('.overlay-mask').hide();
 		}
 		paginationTimeoutRunning = true;
-		paginationHideTimeout = setTimeout(hidePaginationElement, 1000);
+		paginationHideTimeout = setTimeout(hidePaginationElement, 1500);
 
 		function hidePaginationElement() {
-			paginationCoverElement.animate({
+			/*paginationCoverElement.animate({
 				"margin-left": "50px"
-			}, "fast")
+			}, "fast")*/
+			paginationCoverElement.addClass('hidePagination');
 			paginationTimeoutRunning = true;
 		};
 
 		function showPaginationElement() {
-			paginationCoverElement.animate({
-				"margin-left": "0px"
-			}, "fast")
+			paginationCoverElement.removeClass('hidePagination');
 			if (paginationTimeoutRunning) {
 				clearTimeout(paginationHideTimeout);
-				paginationHideTimeout = setTimeout(hidePaginationElement, 1000);
+				paginationHideTimeout = setTimeout(hidePaginationElement, 1500);
 			}
 		};
 		$(document).ready(function () {
 			$parallaxCont = $('.parallax-cont');
-			
+
 			swiper = mySwiper = $('.swiper-container').swiper({
 				mode: 'vertical',
 				keyboardControl: true,
@@ -325,32 +324,36 @@
 				timeout: 00,
 				slidesPerView: 'auto',
 				paginationAsRange: true,
-				simulateTouch: true,
-				calculateHeight: true,
+				calculateHeight: true
 			});
 			$('.visible-change').css('opacity', '0');
 			$('div.man-item').addClass('show-item');
 			startAnimatingItems(0);
 			hideOverlayMask();
 
-			$(window).on('resize', function () {
-				//$('.swiper-slide').height(window.innerHeight);
-				mySwiper.resizeFix()
+			$(window).on('orientationchange', function () {
+				//console.log('--window.innerHeight--', window.innerHeight);
+				setTimeout(function () {
+					$('.swiper-slide').height(window.innerHeight - 1);
+					$('.page-final').height(window.innerHeight + 2);
+					mySwiper.resizeFix();
+				}, 500);
 			});
-			$('.swiper-slide').height(window.innerHeight);
+			$('.swiper-slide').height(window.innerHeight - 1);
+			$('.page-final').height(window.innerHeight + 2);
 
 			doneByTap = false;
 			prevIndex = 0;
 			pl.slideDir = 'next';
 			$('.pagination').on('click', function (e) {
-				
-				e.stopPropagation();
-			/*	paginationCoverElement.animate({
+
+				//e.stopPropagation();
+				/*	paginationCoverElement.animate({
 					"margin-left": "50px"
 				}, "fast");
-			*/	
+			*/
 				dataIndex = e.target.getAttribute('data-index');
-				
+
 				if (parseFloat(dataIndex) > parseFloat(prevIndex)) {
 					diff = parseFloat(dataIndex) - parseFloat(prevIndex);
 					pl.slideDir = 'next';
@@ -401,8 +404,15 @@
 				prevIndex = dataIndex;
 			});
 
-
-			paginationCoverElement = $('.pagination');
+			if (navigator.userAgent.match(/iPad;.*CPU.*OS 7_\d/i) && window.innerHeight != document.documentElement.clientHeight) 				{
+				var fixViewportHeight = function () {
+					//console.log('orientation--', window.innerHeight);
+					document.documentElement.style.height = window.innerHeight + "px";
+				}
+				window.addEventListener("orientationchange", fixViewportHeight, false);
+				fixViewportHeight();
+			}
+			paginationCoverElement = $('.pagination-cover');
 			$('body').on('click', showPaginationElement);
 		});
 	</script>
