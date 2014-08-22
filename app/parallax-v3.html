@@ -4,7 +4,7 @@
 
 
 	<meta name="viewport" content="width = device-width,height=device-height,
-       initial-scale = 1.0, user-scalable = no, maximum-scale=1">
+       initial-scale = 1.0, user-scalable = no, maximum-scale=1,">
 	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300italic,700italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link href="css/appTest.css" type="text/css" rel="stylesheet" />
@@ -334,10 +334,10 @@
 			hideOverlayMask();
 
 			$(window).on('resize', function () {
-				$('.swiper-slide').height(window.innerHeight);
+				//$('.swiper-slide').height(window.innerHeight);
 				mySwiper.resizeFix()
 			});
-			$('.swiper-slide').height(window.innerHeight - 1);
+			$('.swiper-slide').height(window.innerHeight);
 
 			doneByTap = false;
 			prevIndex = 0;
