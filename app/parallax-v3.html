@@ -84,10 +84,6 @@
 			if (action == 'to') {
 				mySwiper.params.stayStill = false;
 				return;
-			}else{
-				paginationCoverElement.animate({
-				"margin-left": "50px"
-				}, "fast");	
 			}
 			//console.log('--inside slide swipe --');
 			if (pl.sameSlideSwipecounterStarted) {
@@ -107,7 +103,7 @@
 				pl.sameSlideSwipecounter = 0;
 				mySwiper.params.stayStill = false;
 			}
-			
+			showPaginationElement();
 		};
 
 		function resetSlideElements(index) {
@@ -349,10 +345,10 @@
 			$('.pagination').on('click', function (e) {
 				
 				e.stopPropagation();
-				paginationCoverElement.animate({
+			/*	paginationCoverElement.animate({
 					"margin-left": "50px"
 				}, "fast");
-				
+			*/	
 				dataIndex = e.target.getAttribute('data-index');
 				
 				if (parseFloat(dataIndex) > parseFloat(prevIndex)) {
