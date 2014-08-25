@@ -339,6 +339,14 @@
 					mySwiper.resizeFix();
 				}, 500);
 			});
+			$(window).on('resize', function () {
+				//console.log('--window.innerHeight--', window.innerHeight);
+				setTimeout(function () {
+					$('.swiper-slide').height(window.innerHeight - 1);
+					$('.page-final').height(window.innerHeight + 2);
+					mySwiper.resizeFix();
+				}, 200);
+			});
 			$('.swiper-slide').height(window.innerHeight - 1);
 			$('.page-final').height(window.innerHeight + 2);
 
