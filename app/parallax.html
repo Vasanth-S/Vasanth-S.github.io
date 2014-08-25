@@ -36,6 +36,7 @@
 		}, false);
 
 		function doAnim(index, direction) {
+			setTimeout(function(){paginationCoverElement.addClass('hidePagination')}, 300);
 			//console.log('--argument.callee.caller--', arguments.callee.caller);
 			showOverlayMask();
 
@@ -140,7 +141,6 @@
 
 		function startAnimatingItems(index) {
 
-
 			slideId = mySwiper.getSlide(index).id;
 
 			var logo = '#' + slideId + ' .logo';
@@ -167,9 +167,11 @@
 			$(girl_5).addClass('animated bounceInRight');
 			$(kiosk_5).addClass('animated bounceInLeft');
 			$(boy_6).addClass('animated bounceInRight');
+			
 		};
 
 		function slideChangeEnd(swiper, direction) {
+			
 			//console.log('--inside slide swipe end --');
 			if (swiper.activeIndex === swiper.previousIndex) {
 				//console.log('inside false callback', swiper.activeIndex, '--', swiper.previousIndex);
@@ -229,6 +231,7 @@
 		}
 
 		function slideChangeStart(swiper, direction) {
+			setTimeout(function(){paginationCoverElement.addClass('hidePagination')}, 300);
 			showOverlayMask();
 			//console.log('swipe start');
 			//	console.log('--inside slide swipe start --');
@@ -282,7 +285,7 @@
 			$('.overlay-mask').hide();
 		}
 		paginationTimeoutRunning = true;
-		paginationHideTimeout = setTimeout(hidePaginationElement, 1500);
+		paginationHideTimeout = setTimeout(hidePaginationElement, 2000);
 
 		function hidePaginationElement() {
 			/*paginationCoverElement.animate({
@@ -296,7 +299,7 @@
 			paginationCoverElement.removeClass('hidePagination');
 			if (paginationTimeoutRunning) {
 				clearTimeout(paginationHideTimeout);
-				paginationHideTimeout = setTimeout(hidePaginationElement, 1500);
+				paginationHideTimeout = setTimeout(hidePaginationElement, 2000);
 			}
 		};
 		$(document).ready(function () {
