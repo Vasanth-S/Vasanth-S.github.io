@@ -720,7 +720,6 @@
 			}
 			.copy-text {
 				font-size: 10px;
-				text-align: left;
 				margin-top: 20px;
 			}
 			.g-store {
@@ -736,12 +735,16 @@
 			.footer-content {
 				position: absolute;
 				bottom: 30px;
+				width: 100%;
 			}
 			.page-7 .desc-text {
 				padding: 0px 0px;
 			}
 			.page-final .title-text {
 				padding-top: 70px !important;
+			}
+			#copy-imaginea{
+				display:none;
 			}
 		}
 		@media all and (max-width: 320px) and (min-width: 241px) {
